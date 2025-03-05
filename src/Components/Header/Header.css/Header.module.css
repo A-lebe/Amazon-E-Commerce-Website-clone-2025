@@ -2,7 +2,11 @@
     margin: 0;
     padding: 0;
 }
-
+.fixed{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 .header_container{
     background-color: #1a1a1a;
     display: flex;
@@ -11,6 +15,9 @@
     align-items: center;
     height: 70px;
    
+}
+.header_container img{
+   width: 100%;
 }
 .logo_container{
    display: flex; 
@@ -44,6 +51,7 @@
    width: 100%;
    overflow: 1;
 }
+
 .search input{
     padding: 10px;
     font-weight: bold;
@@ -53,6 +61,8 @@
 }
 .search select{
     border: none;
+    padding: 10px;
+        outline: 1px solid white;
 }
 .search svg{
     padding: 7px;
@@ -98,23 +108,26 @@
 .cart span{
     position: absolute;
     font-weight: bold;
-    top: 0px;
+    top: -13px;
     font-size: 20px;
     background-color: #1a1a1a;
-    left: 16px;
+    left: 8px;
     color: orange;
 }
 .order_container a:hover{
     border: 1px solid white;
     border-radius: 3px;
 }
-.logo_container a:hover .delivery :hover {
+.logo_container a:hover, .delivery:hover {
       border: 1px solid white;
     border-radius: 3px;
 }
 .lower_container{
 background-color: #232f3e;
 color: white;
+}
+.all{
+    display: flex;
 }
 .lower_container ul{
     display: flex;
@@ -135,9 +148,10 @@ color: white;
         flex-direction: column !important;
         height: auto;
     }
-      .lower_container ul li :not(:first-child)
-      {
-        display: none;}
+    .lower_container ul li:not(:first-child) {
+    display: none;
+  }
+      
     .language{
         display: none;
     }

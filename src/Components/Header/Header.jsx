@@ -1,27 +1,41 @@
 // import React from 'react'
 import SearchIcon from '@mui/icons-material/Search';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';;
 import LowerHeader from '../LowerHeader';
+import { SlLocationPin } from "react-icons/sl";
 import "../../Components/Header/Header.css/Header.module.css";
 import classes from "../../Components/Header/Header.css/Header.module.css";
+import { Link } from 'react-router-dom';
+import { DataContext } from '../DataProvider/DataProvider';
+import{useContext}from "react"
 function Header() {
+  const [{ basket, dispatch }] = useContext(DataContext)
+  
+  const totalItem= basket?.reduce ((amount,item)=>{
+  return item.amount+amount
+},0)
   return (
-    <section>
+    <section className={classes.fixed}>
       
       <section className={classes.header_container}> 
         <div className={classes.logo_container}>
            {/* logo */}
-          <a href="">
+          <Link to="/">
             <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="" />
-          </a>
+          </Link>
           {/* delivery */}
           <span>
             {/* icon */}
           </span>
         </div>
         <div className={classes.delivery}>
-            <p>delivered to</p>
+          <span><SlLocationPin /></span>
+
+        <div>
+              <p>delivered to</p>
           <span>Ethiopia</span>
+        </div>
+      
         </div>
         <div className={classes.search}>
          
@@ -29,48 +43,51 @@ function Header() {
             <option value="All">All</option>
           </select>
           <input type="text" name="" id='' placeholder='search product' />
-          <SearchIcon /> 
+          <SearchIcon size={25} /> 
           </div>
         <div className={classes.order_container}>
           {/* rightt side link */}
           <div className={classes.language}>
-           <a href="">
+           <Link to="">
           <img src="https://t3.ftcdn.net/jpg/05/43/00/48/360_F_543004860_AiMa6Qr8ub2khwxduNxWg8R9bpYTauW4.jpg" alt="flag" />
          <select>
           <option value="EN">EN</option>
         </select>
-        </a>
+        </Link>
           </div>
           {/* three components */}
-          <a href="">
+          <Link to="/SignIn">
             <div>
               <p>sign in</p>
               <span>
                 account & lists
               </span>
             </div>
-          </a>
+          </Link>
           {/* orders */}
-          <a href="">
+          <Link to="/Orders">
             
               <p>returns</p>
               <span>
                 & orders
               </span>
            
-          </a>
+          </Link>
           {/* cart */}
-          <a to="cart" className={classes.cart}>
+          <Link to="/Cart" className={classes.cart}>
             {/* icon */}
-             <AddShoppingCartIcon/>
-            <span>0 </span>
-          </a>
+             
+            <span>{totalItem } </span>
+            <AddShoppingCartIcon size={35} /> 
+          </Link>
            </div>
          
       </section>
       <LowerHeader/>
-   </section>
+    </section>
+    
   )
+  
 }
 
 export default Header

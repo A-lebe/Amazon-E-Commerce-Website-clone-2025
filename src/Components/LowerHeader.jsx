@@ -6,7 +6,7 @@ function LowerHeader() {
   return (
       <div className={classes.lower_container}>
           <ul>
-              <li>
+              <li className={classes.all}>
                   <MenuIcon /> 
                 <p>All</p>  
               </li>
