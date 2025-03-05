@@ -11,7 +11,7 @@ import Cart from "./Pages/Cart/Cart2";
 function Routing() {
   return (
        <div>
-      <BrowserRouter>
+      <BrowserRouter basename=''>
         <Routes>
           
              <Route path="/" element={<Landing/> } />
