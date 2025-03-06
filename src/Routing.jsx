@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter } from "react-router-dom";
+
 import { Routes, Route } from "react-router-dom";
 import Landing from "./Pages/Landing/Landing";
 import SignIn from './Pages/Auth/SignIn';
@@ -11,7 +11,7 @@ import Cart from "./Pages/Cart/Cart2";
 function Routing() {
   return (
        <div>
-      <BrowserRouter basename=''>
+      
         <Routes>
           
              <Route path="/" element={<Landing/> } />
@@ -24,7 +24,7 @@ function Routing() {
           
           
         </Routes>
-       </BrowserRouter>
+       
     </div>
   )
 }

@@ -1,5 +1,4 @@
-// import react,from "react"
-
+import react from "react"
 import  { createContext, useReducer } from "react";
 export const DataContext = createContext();
 export const DataProvider = ({ children, reducer, initialState }) => {
