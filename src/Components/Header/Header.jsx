@@ -1,16 +1,18 @@
 // import React from 'react'
-import SearchIcon from '@mui/icons-material/Search';
+import { FaSearch } from "react-icons/fa";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';;
 import LowerHeader from '../LowerHeader';
 import { SlLocationPin } from "react-icons/sl";
 import "../../Components/Header/Header.css/Header.module.css";
-import classes from "../../Components/Header/Header.css/Header.module.css";
+import { auth } from "../../utility/Firebase";
 import { Link } from 'react-router-dom';
 import { DataContext } from '../DataProvider/DataProvider';
+import classes from "../../Components/Header/Header.css/Header.module.css";
 import{useContext}from "react"
 function Header() {
-  const [{ basket, dispatch }] = useContext(DataContext)
-  
+  const { state, dispatch } = useContext(DataContext)
+  const { user, basket } = state
+  console.log(user)
   const totalItem= basket?.reduce ((amount,item)=>{
   return item.amount+amount
 },0)
@@ -43,12 +45,12 @@ function Header() {
             <option value="All">All</option>
           </select>
           <input type="text" name="" id='' placeholder='search product' />
-          <SearchIcon size={25} /> 
+          <FaSearch size={38} /> 
           </div>
         <div className={classes.order_container}>
           {/* rightt side link */}
           <div className={classes.language}>
-           <Link to="">
+           <Link to="/">
           <img src="https://t3.ftcdn.net/jpg/05/43/00/48/360_F_543004860_AiMa6Qr8ub2khwxduNxWg8R9bpYTauW4.jpg" alt="flag" />
          <select>
           <option value="EN">EN</option>
@@ -56,13 +58,27 @@ function Header() {
         </Link>
           </div>
           {/* three components */}
-          <Link to="/SignIn">
+          <Link to={!user && "/Auth"}>
             <div>
-              <p>sign in</p>
-              <span>
+              {
+                user ?
+                  (
+                    <>
+                    <p>Hello{user?.email?.split("@")[0]}</p>
+                      <span  onClick={()=>auth.signOut}> sign out</span> 
+                  </>
+                  
+                ) : (
+                    <>
+                <p >Hello,   sign in</p> 
+                      <span >
                 account & lists
-              </span>
+                      </span>
+                       </>
+                )
+              }
             </div>
+           
           </Link>
           {/* orders */}
           <Link to="/Orders">

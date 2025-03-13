@@ -6,11 +6,12 @@ import { useContext } from "react";
 import { DataContext } from "../DataProvider/DataProvider";
 import { Type } from '../../utility/action.type';
 import classes from "./Product.css/Product.module.css";
+import { yellow } from "@mui/material/colors";
 function ProductCard({ product,  flex, Renderdesc, renderAdd }) {
   const { image, title, price, id, rating, description } = product
   
-  const [{state}, dispatch] =useContext(DataContext)
-  console.log(state)
+  const { state, dispatch } =useContext(DataContext)
+  // console.log(state)
   const addToCart = () => {
     dispatch({
       type: Type.ADD_TO_BASKET, item : { image, title, price, id, rating, description }
@@ -26,7 +27,7 @@ function ProductCard({ product,  flex, Renderdesc, renderAdd }) {
       </Link>
       <div>
         <h4>{title}</h4>
-         { Renderdesc && <div style={{ maxWidth: "750px" }}>{description}</div>}  
+         { Renderdesc && <div style={{ maxWidth: "750px", }}>{description}</div>}  
         <div className={classes.rating}>
           <Rating value={rating?.rate} precision={0.1} />
           <small>{rating?.count}</small>

@@ -39,7 +39,7 @@ text-decoration: none;
 color: black;
 
 }
-.subtotal a :hover{
+.subtotal a:hover{
    background: var(--primary-shade);
 }
 .subtotal >div,.subtotal span{
@@ -53,6 +53,7 @@ color: black;
     align-items: center;
     gap: 5px;
 }
+
 .btn{
     padding: 5px 16px;
     font-weight: bold;

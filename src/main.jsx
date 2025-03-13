@@ -7,11 +7,12 @@ import { initialState,reducer } from "./utility/reducer.js"
 import { BrowserRouter } from 'react-router-dom'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-     <BrowserRouter basename="/Amazon-E-Commerce-Website-clone-2025">     
+     <BrowserRouter >     
     
     <DataProvider initialState={initialState} reducer={reducer}>
       <App />
       </DataProvider>
       </BrowserRouter>
-  </StrictMode>,
+  </StrictMode>
+  // basename="/Amazon-E-Commerce-Website-clone-2025"
 )

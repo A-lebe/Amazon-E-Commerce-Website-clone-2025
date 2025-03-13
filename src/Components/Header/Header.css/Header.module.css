@@ -99,6 +99,9 @@
     border: none;
     color: white;
 }
+.language a{
+    background-color: var(--primary-color);
+}
 .language img{
     width: 40%;
 }

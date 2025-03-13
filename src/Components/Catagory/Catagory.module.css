@@ -29,10 +29,12 @@
 .catagory_container{
    position: relative;
   margin-top: -10%;
-  display: grid;
-  
-  grid-template-columns: repeat(5, 1fr);
-  /* place-items: center; */
+  display: flex;
+  grid-template-columns: repeat(autto-fit,minmax(350px,1fr) );
+  max-width: 1600px;
+  gap: 50px;
+  margin-right: auto;
+  margin-left: auto;
   justify-items: center;
   align-items: center;
 }

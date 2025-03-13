@@ -1,6 +1,7 @@
 import { Type } from "./action.type";
 export const  initialState = {
-    basket:[]
+    basket: [],
+    user:null,
 }
 
 
@@ -32,11 +33,20 @@ export const reducer = (state, action) => {
                     newBasket.splice(index,1)
                 }
             }
+        case Type.EMPTY_BASKET:
+            return {
+                ...state,
+                basket:[],
+            }
             return {
                 ...state,
                 basket:newBasket
             }
-                
+        case Type.SET_USER:  
+            return {
+                ...state,
+                user:action.user
+            }
             
             default:
             return state;

@@ -10,7 +10,7 @@ function Product() {
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setProducts(res.data);
         setLoading(false);
       })
@@ -21,15 +21,7 @@ function Product() {
   }, []);
   return (
     <>
-      {/* {
-        // Loading?(< Loader/>):(<section className={classes.product_container}>
-      {
-        Products.map((singleproduct) => {
-          return < ProductCard product={singleproduct} key={singleproduct.id} />
-        })
-        }  
-      </section>)
-      } */}
+     
       <section className={classes.product_container}>
       {
         Products.map((singleproduct) => {

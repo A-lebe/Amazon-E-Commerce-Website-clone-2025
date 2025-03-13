@@ -11,8 +11,8 @@ import { IoIosArrowDown } from "react-icons/io";
 import classes from "./Cart.module.css";
 
 function Cart2() {
-  const [ {basket}, dispatch ] = useContext(DataContext);
-  // const { basket } = state
+  const { state, dispatch } = useContext(DataContext);
+  const { basket } = state
   const total = basket.reduce((amount, item) => {
     return item.price * item.amount + amount
   }, 0)
